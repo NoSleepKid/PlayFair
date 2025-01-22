@@ -1,12 +1,15 @@
 # PlayFair - ReadMe
 
 ## Error Codes
-- "FAIR" This means that the scene that loads PlayFair has already been loaded once and has prevented from 2 instances from existing.
-- "WTRMELON" This means that the developer of the game has failed to sucessfully implement the IPlayFairInitCallback interface into thier project.
-- "CHILDREN KILLED" This means that all of the the children of the PlayFair object has been destroyed, Usually this happens when someone didn't implement PlayFair into thier game good enough. Or when someone is using mods, MelonLoader, and/or BepinEx
-- "RESPOND PLEASE" This happens when a part of PlayFair times out during it's self check. Usually when 1 or 2 child objects of PlayFair has been destroyed
-- "UNITYENGINE" This hapens when the Unity version is less than Unity 2017.2 so if you recieve this, Please contact the developer of this game with the error code, or upgrade it yourself.
-- "FAST" This happens when the time scale is grater than 1. PlayFair is not designed for 
+- "FAIR" This means that the scene that loads PlayFair has already been loaded once and has prevented from 2 or more instances from existing.
+- "WTRMELON" This means that the developer of the game has failed to successfully implement the IPlayFairInitCallback interface into their project.
+- "CHILDREN KILLED" This means that all of the children of the PlayFair object have been destroyed. Usually, this happens when someone didn't implement PlayFair into their game correctly, or when someone is using mods, MelonLoader, and/or BepInEx.
+- "RESPOND PLEASE" This happens when a part of PlayFair times out during its self-check. Usually, this occurs when 1 or 2 child objects of PlayFair have been destroyed.
+- "UNITYENGINE" This happens when the Unity version is less than Unity 2017.2. If you receive this, please contact the developer of this game with the error code or upgrade it yourself.
+- "FAST" This happens when the time scale is greater than 1. PlayFair is not designed for this scenario.
+
+---
+
 ### Overview
 PlayFair is a robust, developer-friendly system designed to maintain fairness and detect unusual behavior in your games. Developed by **NoSleepKid** from **NukStudios**, PlayFair ensures that your players enjoy a cheat-free gaming experience without any integration of PlayFab—this is a fully original system.
 
@@ -46,7 +49,7 @@ public class CheatDetectionHandler : MonoBehaviour, IPlayFairCheatCallbacks
         Debug.Log("Auto-clicker detected! Taking action.");
     }
 
-    public void OnNonHuminoidMouseMovementsDetected()
+    public void OnNonHumanoidMouseMovementsDetected()
     {
         Debug.Log("Non-human mouse movements detected!");
     }
@@ -74,7 +77,7 @@ void OnPlayFairInitComplete();
 - Callbacks for detecting specific cheats.
 ```csharp
 void OnAutoClickerDetected();
-void OnNonHuminoidMouseMovementsDetected();
+void OnNonHumanoidMouseMovementsDetected();
 void OnNonHumanoidKeyboardTypingDetected();
 ```
 
